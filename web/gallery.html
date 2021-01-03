@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Gallery</title>
+    <style>
+
+        
+        * {
+            box-sizing: border-box;
+            
+          }
+          
+          body {
+            background-color: gray;
+            font-family: Arial;
+        }
+          
+          /* Center website */
+          .main {
+            max-width: 80%;
+            margin: auto;
+            
+          }
+          
+          h2 {
+            font-size: 50px;
+            word-break: break-all;
+            text-align: center;
+          }
+          
+          .row {
+            margin: 8px -16px;
+          }
+          
+          /* Add padding BETWEEN each column (if you want) */
+          .row,
+          .row > .column {
+            padding: 20px;
+            
+          }
+          
+          /* Create three equal columns that floats next to each other */
+          .column {
+            float: left;
+            justify-items: center;
+              
+          }
+          
+          /* Clear floats after rows */
+          .row:after {
+            content: "";
+            display: table;
+            clear: both;
+          }
+          
+        img {
+              width: 500px;
+              height: 300px;
+          }
+          
+          .clickable:hover {opacity: 0.7;}
+
+          .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+          }
+
+          .modal-content {
+            margin: auto;
+            display: block;
+            width: 1000px;
+            max-width: 700px;
+          }
+
+          
+          
+          /* Caption of Modal Image */
+          #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+          }
+          
+        .table{
+            padding-right: 10%;
+        }
+        
+        
+          /* Add Animation */
+          .modal-content, #caption {  
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+          }
+          
+          @-webkit-keyframes zoom {
+            from {-webkit-transform:scale(0)} 
+            to {-webkit-transform:scale(1)}
+          }
+          
+          @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+          }
+          
+          /* The Close Button */
+          .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+          }
+          
+          .close:hover,
+          .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+          }
+          
+          /* 100% Image Width on Smaller Screens */
+          @media only screen and (max-width: 700px){
+            .modal-content {
+              width: 100%;
+            }
+          }
+          
+    </style>
+</head>
+<body>
+    
+    <div class="main">
+            <div class="logo">
+                <img src="logo1.png">
+            
+            </div>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="Services.html">SERVICES</a></li>
+                <li class="active"><a href="gallery.html">GALLERY</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        
+        </div>
+    
+    <h2 style="padding-top: 150px; color: white;">GALLERY </h2>
+
+
+<div class="table">
+<div class="row">
+  <div class="column nature">
+    <div class="content">
+      <img class="clickable"  src="hotel1.jpg" alt="Pool">
+      <h4>Cozy room</h4>
+    </div>
+  </div>
+  <div class="column nature">
+    <div class="content">
+      <img class="clickable"  src="hotel2.jpg" alt="Eatery" >
+      <h4>Sumptuous and Spacious</h4>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column cars">
+    <div class="content">
+      <img class="clickable"  src="hotel3.jpg" alt="Rooms" >
+      <h4>Cool pool</h4>
+    </div>
+  </div>
+  <div class="column cars">
+    <div class="content">
+      <img class="clickable"  src="hotel4.jpg" alt="View">
+      <h4>Calm your soul</h4>
+    </div>
+  </div>
+    
+    
+    
+<!-- END GRID -->
+</div> 
+    
+    <div class="row">
+  <div class="column nature">
+    <div class="content">
+      <img class="clickable"  src="hotel6.jpg" alt="Pool">
+      <h4>Piece of heaven</h4>
+    </div>
+  </div>
+  <div class="column nature">
+    <div class="content">
+      <img class="clickable"  src="hotel5.jpg" alt="Eatery" >
+      <h4>Luxurious and elegant</h4>
+    </div>
+  </div>
+</div>
+    
+    
+    
+    
+    
+    </div>
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+  </div>
+    
+    
+<script>
+    var modal = document.getElementById("myModal");
+var i;
+
+var img = document.getElementsByClassName("clickable");
+var modalImg = document.getElementById("img01");
+
+ for(i=0;i< img.length;i++)
+   {    
+    img[i].onclick = function(){
+
+    modal.style.display = "block";
+       modalImg.src = this.src;
+
+ }
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+
+span.onclick = function() { 
+   modal.style.display = "none";
+}
+    
+ </script>
+</body>
+</html>

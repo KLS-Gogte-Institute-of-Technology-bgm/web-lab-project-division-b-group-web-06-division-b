@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <style>
+        
+        
+        
+        body{
+            background-color: gainsboro;
+        }
+    
+    
+       input[type=text], select, textarea {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-size: 20px;
+}
+
+        
+     input[type=email], select, textarea {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-size: 20px;
+}       
+        
+        
+        
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+    <br>
+    <br>
+    <center><h1>BOOKING FORM</h1></center>
+    
+    <br>
+    <br>
+    <div class="booking">
+    <center>
+    <form name="myForm">
+        <label for="fname" style="font-size: 25px;">First Name</label>
+        <br>
+        <input type="text" id="fname" name="firstname" placeholder="Enter your first name here...">
+        
+        <br>
+        
+        <label for="lname" style="font-size: 25px;">Last Name</label>
+        <br>
+        <input type="text" id="lname" name="lastname" placeholder="Enter your last name here...">
+        
+        <br>
+        
+        <label for="email" style="font-size: 25px;">E-mail</label>
+        <br>
+        <input type="email" id="email" name="emailid" placeholder="Enter your email id here...">
+        
+        <br>
+        
+        <label for="phone" style="font-size: 25px;">Phone Number</label>
+        <br>
+        <input type="text" id="phonenum" name="phone" placeholder="enter your phone number here...">
+        
+        <br>
+        
+        <label for="country" style="font-size: 25px;">Country</label>
+        <br>
+        <select id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="england">England</option>
+            <option value="india">India</option>
+            <option value="unitedstates">United States</option>
+            <option value="britain">United Kingdoms</option>
+            <option value="newzealand">New Zealand</option>
+            <option value="southafrica">South Africa</option>
+        </select>
+        
+        <br>
+    
+        <input type="submit" style="font-size: 25px;" onclick="myFunction()">
+    
+    </form>
+        </center>
+    </div>
+    
+    <script>
+        function myFunction(){
+            
+            var name1=document.myForm.firstname.value;
+            var name2=document.myForm.lastname.value;
+            var email=document.myForm.emailid.value;
+            var phone=document.myForm.phone.value;
+            if(name1=="" || name1==null)
+                alert("first name must be filled...");
+            else if(name2=="" || name2==null)
+                alert("Last name must be filled...");
+            else if(email.length<6)
+                alert("Please enter a correct email...");
+            else if(phone.length<10 || phone.length>10)
+                alert("Please enter a valid phone number...");
+            else
+                alert("Booking Form successfully submitted....");
+        }
+    
+        
+    </script>
+</body>
+
+</html>
